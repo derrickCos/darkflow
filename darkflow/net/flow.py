@@ -74,10 +74,14 @@ def train(self):
     if ckpt: _save_ckpt(self, *args)
 
 def return_predict(self, im):
-    assert isinstance(im, np.ndarray), \
-				'Image is not a np.ndarray'
+    assert isinstance(im, np.ndarray), 'Image is not a np.ndarray'
     h, w, _ = im.shape
+    print(h)
+    print(w)
     im = self.framework.resize_input(im)
+    h, w, _ = im.shape
+    print(h)
+    print(w)
     this_inp = np.expand_dims(im, 0)
     feed_dict = {self.inp : this_inp}
 
@@ -85,11 +89,13 @@ def return_predict(self, im):
     boxes = self.framework.findboxes(out)
     threshold = self.FLAGS.threshold
     boxesInfo = list()
+    json = list()
     for box in boxes:
         tmpBox = self.framework.process_box(box, h, w, threshold)
         if tmpBox is None:
             continue
-        boxesInfo.append({
+        boxesInfo.append([tmpBox[4], tmpBox[6], tmpBox[0], tmpBox[2], tmpBox[1], tmpBox[3]])
+        json.append({
             "label": tmpBox[4],
             "confidence": tmpBox[6],
             "topleft": {
@@ -99,7 +105,7 @@ def return_predict(self, im):
                 "x": tmpBox[1],
                 "y": tmpBox[3]}
         })
-    return boxesInfo
+    return boxesInfo,json
 
 import math
 
