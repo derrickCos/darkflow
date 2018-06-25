@@ -15,8 +15,13 @@ def _fix(obj, dims, scale, offs):
 
 def resize_input(self, im):
 	h, w, c = self.meta['inp_size']
+	print(im.shape)
+	print(h)
+	print(w)
 	imsz = cv2.resize(im, (w, h))
+	print(imsz.shape)
 	imsz = imsz / 255.
+	print(imsz)
 	imsz = imsz[:,:,::-1]
 	return imsz
 
