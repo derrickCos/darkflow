@@ -1,3 +1,9 @@
+## Chanes from Original Repo
+
+Added main.py for python usage
+
+Made changes to darkflow\net\flow.py and darkflow\net\yolo\predict.py from original repo
+
 ## Intro
 
 Added main.py for python usage
