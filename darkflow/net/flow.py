@@ -78,12 +78,12 @@ def return_predict(self, im):
     h, w, _ = im.shape
     print(h)
     print(w)
-    im = self.framework.resize_input(im)
+    # im = self.framework.resize_input(im)
     h, w, _ = im.shape
     print(h)
     print(w)
     this_inp = np.expand_dims(im, 0)
-    feed_dict = {self.inp : this_inp}
+    feed_dict = {self.inp: this_inp}
 
     out = self.sess.run(self.out, feed_dict)[0]
     boxes = self.framework.findboxes(out)
@@ -105,6 +105,14 @@ def return_predict(self, im):
                 "x": tmpBox[1],
                 "y": tmpBox[3]}
         })
+
+        cv2.rectangle(img,
+                      (left, top), (right, bot),
+                      self.meta['colors'][max_indx], thick)
+        cv2.putText(
+            imgcv, mess, (left, top - 12),
+            0, 1e-3 * h, self.meta['colors'][max_indx],
+               thick // 3)
     return boxesInfo,json
 
 import math
