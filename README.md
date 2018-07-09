@@ -1,4 +1,4 @@
-## Chanes from Original Repo
+## Changes from Original Repo
 
 Added main.py for python usage
 
