@@ -8,7 +8,7 @@ Made changes to darkflow\net\flow.py and darkflow\net\yolo\predict.py from origi
 
 Real-time object detection and classification. Paper: [version 1](https://arxiv.org/pdf/1506.02640.pdf), [version 2](https://arxiv.org/pdf/1612.08242.pdf).
 
-Read more about YOLO (in darknet) [here](http://pjreddie.com/darknet/yolo/). In case the weight file cannot be found, I uploaded some of mine [here](T:\Working\DCosmas\darkflow-master) , which include `yolo-full` and `yolo-tiny` of v1.0, `tiny-yolo-v1.1` of v1.1 and `yolo`, `tiny-yolo-voc` of v2.
+Read more about YOLO (in darknet) [here](http://pjreddie.com/darknet/yolo/). In case the weights file cannot be found, I uploaded some of mine `T:\Working\DCosmas\darkflow-master\bin`, which include `yolo` and `yolo-tiny`
 
 The converted .pb and .meta files to be used with --pbLoad and --metaLoad can be found in `T:\Working\DCosmas\darkflow-master\built-graph`
 
@@ -43,6 +43,14 @@ See demo below or see on [this imgur](http://i.imgur.com/EyZZKAA.gif)
         ``` 
         Install with pip globally
 
+4. Go to rtmaps_object_detect.py. At line 26 `options = `, check that path to `pbLoad` and `metaLoad` correspond to the right `.pb` and `.meta` files. 
+    
+## Properties in RTMaps    
+
+1. `threshold` values is the minimum detection threshold required for a bounding box to be displayed in the image
+2. `gpu` is the percentage of GPU usage from 0.0 to 1.0
+3. `image_height` is the height of original input image 
+4. `image_width` is the width of oriignal input image
 
 **Android demo on Tensorflow's** [here](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/src/org/tensorflow/demo/TensorFlowYoloDetector.java)
 
@@ -53,7 +61,7 @@ Please note that `return_predict(img,h,w)` must take an `numpy.ndarray` for the 
 
 `return_predict(img,h,w)` also requires image height and image width of the original image. Otherwise, the location of bounding box will not be accurately displayed.
 
-Result from `return_predict(img,h,w)` will be a list of dictionaries representing each detected object's values in the same format as the JSON output listed above.
+`json` from `return_predict(img,h,w)` will be a list of dictionaries representing each detected object's values in the same format as the JSON output listed above. `result` will give you the result in array format
 
 ```python
 from darkflow.net.build import TFNet
@@ -65,8 +73,8 @@ tfnet = TFNet(options)
 
 imgcv = cv2.imread("./sample_img/sample_horses.jpg")
 # Using data viewer on RTMaps, the image height and width is 512 and 773
-result = tfnet.return_predict(imgcv, 512, 773)
-print(result)
+result, json = tfnet.return_predict(imgcv, 512, 773)
+print(json)
 ```
 
 
