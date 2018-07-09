@@ -73,15 +73,10 @@ def train(self):
 
     if ckpt: _save_ckpt(self, *args)
 
-def return_predict(self, im):
+def return_predict(self, im, h_original, w_original):
     assert isinstance(im, np.ndarray), 'Image is not a np.ndarray'
     h, w, _ = im.shape
-    print(h)
-    print(w)
-    # im = self.framework.resize_input(im)
-    h, w, _ = im.shape
-    print(h)
-    print(w)
+    im = self.framework.resize_input(im)
     this_inp = np.expand_dims(im, 0)
     feed_dict = {self.inp: this_inp}
 
@@ -91,9 +86,10 @@ def return_predict(self, im):
     boxesInfo = list()
     json = list()
     for box in boxes:
-        tmpBox = self.framework.process_box(box, h, w, threshold)
+        tmpBox = self.framework.process_box(box, h_original, w_original, threshold)
         if tmpBox is None:
             continue
+        # label, confidence, topleft_x / x1, topleft_y /  y1, botrightx / x2, botright_y / y2
         boxesInfo.append([tmpBox[4], tmpBox[6], tmpBox[0], tmpBox[2], tmpBox[1], tmpBox[3]])
         json.append({
             "label": tmpBox[4],
@@ -106,14 +102,7 @@ def return_predict(self, im):
                 "y": tmpBox[3]}
         })
 
-        cv2.rectangle(img,
-                      (left, top), (right, bot),
-                      self.meta['colors'][max_indx], thick)
-        cv2.putText(
-            imgcv, mess, (left, top - 12),
-            0, 1e-3 * h, self.meta['colors'][max_indx],
-               thick // 3)
-    return boxesInfo,json
+    return boxesInfo, json
 
 import math
 
