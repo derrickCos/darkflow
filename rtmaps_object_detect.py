@@ -1,7 +1,6 @@
-from rtmaps.base_component import BaseComponent # base class
-from darkflow.net.build import TFNet
+from rtmaps.base_component import BaseComponent  # base class
 import rtmaps.types
-import cv2
+from darkflow.net.build import TFNet  # load the model from main.py
 import numpy as np
 
 
@@ -9,93 +8,81 @@ import numpy as np
 class rtmaps_python(BaseComponent):
     def __init__(self):
         BaseComponent.__init__(self) # call base class constructor
-        self.add_input("image_in", rtmaps.types.ANY) # define input
-        self.add_output("result", rtmaps.types.AUTO) # define output
-        self.add_output("box_out_1", rtmaps.types.DRAWING_OBJECT, 10)
-        self.add_output("box_out_2", rtmaps.types.DRAWING_OBJECT, 10)
-        # self.add_output("box_out_3", rtmaps.types.DRAWING_OBJECT, 10)
-
-        # property names should not contain spaces
-        self.add_property("threshold", 0.1) # define threshold, max 1.0
-        self.add_property("gpu_usage", 0.8) # define gpu usage, max 0.8
+        self.add_input("img", rtmaps.types.ANY)  # original image without resiz    
+        self.add_output("coord", rtmaps.types.INTEGER32, 15)  # define detection_result
+        # Properties name cannot contain spaces
+        self.add_property("threshold", 0.5)  # define threshold, max 1.0
+        self.add_property("gpu_usage", 0.8)
+        self.add_property("image_height", 480)
+        self.add_property("image_width", 640)
 
     # Birth() will be called once at diagram execution startup
     def Birth(self):
+
         print('Python Birth')
-        # options = {"pbLoad": "C:/Program Files/Intempora/RTMaps 4/packages/rtmaps_object_detect/darkflow-master/built_graph/yolo.pb",
-        #            "metaLoad": "C:/Program Files/Intempora/RTMaps 4/packages/rtmaps_object_detect/darkflow-master/built_graph/yolo.meta",
-        #            "threshold": self.properties["threshold"].data,
-        #            "gpu": self.properties["gpu_usage"].data}
-        # tfnet = TFNet(options)
+        options = {"pbLoad": "C:/Program Files/Intempora/RTMaps 4/packages/rtmaps_object_detect/built_graph/yolo.pb",
+                   "metaLoad": "C:/Program Files/Intempora/RTMaps 4/packages/rtmaps_object_detect/built_graph/yolo.meta",
+                   "threshold": self.properties["threshold"].data,
+                   "gpu": self.properties["gpu_usage"].data}
+
+        self.tfnet = TFNet(options)
 
     # Core() is called every time you have a new input
     def Core(self):
-        options = {"pbLoad": "C:/Program Files/Intempora/RTMaps 4/packages/rtmaps_object_detect/darkflow-master/built_graph/yolo.pb",
-                   "metaLoad": "C:/Program Files/Intempora/RTMaps 4/packages/rtmaps_object_detect/darkflow-master/built_graph/yolo.meta",
-                   "threshold": self.properties["threshold"].data}
-                   # ,"gpu": self.properties["gpu_usage"].data}
-        tfnet = TFNet(options)  
-        img = self.inputs["image_in"].ioelt.data # create an ioelt from the input
-        print('hello')
-        output, json = tfnet.return_predict(img.image_data) # output labels and pixel coordinates of bounding box
-        print(output)
+        resized = self.inputs["img"].ioelt.data  # create an ioelt from resized image at 608 x 608 pixels
+        h_original = self.properties["image_height"].data  # height and width from original image before resize
+        w_original = self.properties["image_width"].data
+        print(resized.image_data.shape)
 
-        # We create a Rectangle DrawingObject surrounding what we detected for 3 objects
-        # output 1
-        # output1 = rtmaps.types.Ioelt()  # create an Ioelt
-        # output1.ts = self.inputs["image_in"].ioelt.ts  # get the ts from the input
-        # output1.data = rtmaps.types.DrawingObject()  # create a DrawingObject
-        # output1.data.kind = 2  # set the kind as Rectangle
-        # output1.data.color = 255
-        # output1.data.width = 3  # set its width
-        # output1.data.data = rtmaps.types.Rectangle()  # create a Rectangle and set the coordinate of its diagonal
-        # output1.data.data.x1 = output[0][2] # * self.inputs["image_in"].ioelt.data.image_data.shape[1]
-        # print(output1.data.data.x1)
-        # output1.data.data.y1 = output[0][3] # * self.inputs["image_in"].ioelt.data.image_data.shape[0]
-        # print(output1.data.data.y1)
-        # output1.data.data.x2 = output[0][4] # * self.inputs["image_in"].ioelt.data.image_data.shape[1]
-        # print(output1.data.data.x2)
-        # output1.data.data.y2 = output[0][5] # * self.inputs["image_in"].ioelt.data.image_data.shape[0]
-        # print(output1.data.data.y2)
+        boxes = rtmaps.types.Ioelt()
+        boxes.ts = self.inputs["img"].ioelt.ts
+        boxes.data = []
 
-        # # output 2
-        # output2 = rtmaps.types.Ioelt()  # create an Ioelt
-        # output2.ts = self.inputs["image_in"].ioelt.ts  # get the ts from the input
-        # output2.data = rtmaps.types.DrawingObject()  # create a DrawingObject
-        # output2.data.kind = 2  # set the kind as Rectangle
-        # output2.data.color = 255
-        # output2.data.width = 3  # set its width
-        # output2.data.data = rtmaps.types.Rectangle()  # create a Rectangle and set the coordinate of its diagonal
-        # output2.data.data.x1 = output[1][2] # * self.inputs["image_in"].ioelt.data.image_data.shape[1]
-        # print(output2.data.data.x1)
-        # output2.data.data.y1 = output[1][3] # * self.inputs["image_in"].ioelt.data.image_data.shape[0]
-        # print(output2.data.data.y1)
-        # output2.data.data.x2 = output[1][4] # * self.inputs["image_in"].ioelt.data.image_data.shape[1]
-        # print(output2.data.data.x2)
-        # output2.data.data.y2 = output[1][5] # * self.inputs["image_in"].ioelt.data.image_data.shape[0]
-        # print(output2.data.data.y2)
+        detection_result, json = self.tfnet.return_predict(resized.image_data, h_original, w_original)
 
-        # output 3
-        # output3 = rtmaps.types.Ioelt()  # create an Ioelt
-        # output3.ts = self.inputs["image_in"].ioelt.ts  # get the ts from the input
-        # output3.data = rtmaps.types.DrawingObject()  # create a DrawingObject
-        # output3.data.kind = 2  # set the kind as Rectangle
-        # output3.data.color = 255
-        # output3.data.width = 3  # set its width
-        # output3.data.data = rtmaps.types.Rectangle()  # create a Rectangle and set the coordinate of its diagonal
-        # output3.data.data.x1 = output[2][2] # * self.inputs["image_in"].ioelt.data.image_data.shape[1]
-        # print(output3.data.data.x1)
-        # output3.data.data.y1 = output[2][3] # * self.inputs["image_in"].ioelt.data.image_data.shape[0]
-        # print(output3.data.data.y1)
-        # output3.data.data.x2 = output[2][4] # * self.inputs["image_in"].ioelt.data.image_data.shape[1]
-        # print(output3.data.data.x2)
-        # output3.data.data.y2 = output[2][5] # * self.inputs["image_in"].ioelt.data.image_data.shape[0]
-        # print(output3.data.data.y2)
+        try:
+            boxes.data = []
+            if detection_result[0] is not None and detection_result[0][1] >= self.properties["threshold"].data:
+                boxes.data.append(detection_result[0][2])
+                boxes.data.append(detection_result[0][3])
+                boxes.data.append(detection_result[0][4])
+                boxes.data.append(detection_result[0][5])
 
-        self.outputs["result"].write(output) # output as array
-        self.outputs["box_out_1"].write(output1) # output as drawing
-        self.outputs["box_out_2"].write(output2)
-        # self.outputs["box_out_3"].write(output3)
+        except IndexError:
+            boxes.data.insert(0, 0)
+            boxes.data.insert(1, 0)
+            boxes.data.insert(2, 0)
+            boxes.data.insert(3, 0)
+
+        try:
+            if detection_result[1] is not None and detection_result[1][1] >= self.properties["threshold"].data:
+                boxes.data.append(detection_result[1][2])
+                boxes.data.append(detection_result[1][3])
+                boxes.data.append(detection_result[1][4])
+                boxes.data.append(detection_result[1][5])
+
+        except IndexError:
+            boxes.data.insert(4, 0)
+            boxes.data.insert(5, 0)
+            boxes.data.insert(6, 0)
+            boxes.data.insert(7, 0)
+
+        try:
+            if detection_result[2] is not None and detection_result[2][1] >= self.properties["threshold"].data:
+                boxes.data.append(detection_result[2][2])
+                boxes.data.append(detection_result[2][3])
+                boxes.data.append(detection_result[2][4])
+                boxes.data.append(detection_result[2][5])
+
+        except IndexError:
+            boxes.data.insert(8, 0)
+            boxes.data.insert(9, 0)
+            boxes.data.insert(10, 0)
+            boxes.data.insert(11, 0)
+
+        print(boxes.data)
+
+        self.outputs["coord"].write(boxes)
 
 # Death() will be called once at diagram execution shutdown
     def Death(self):
