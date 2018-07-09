@@ -17,9 +17,9 @@ See demo below or see on [this imgur](http://i.imgur.com/EyZZKAA.gif)
 
 ## Dependencies
 
-# Python3, tensorflow 1.0, numpy, opencv 3.4, cython 0.28.2
+### Python3, tensorflow 1.0, numpy, opencv 3.4, cython 0.28.2
 
-### Getting started
+## Getting started
 
 Clone the repo to default rtmaps package location  ```C:\Program Files\Intempora\RTMaps 4\packages```
 
