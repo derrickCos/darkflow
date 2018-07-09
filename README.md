@@ -50,9 +50,9 @@ Install with pip globally
 
 ## Using darkflow from a python application
 
-Please note that `return_predict(img)` must take an `numpy.ndarray`. Your image must be loaded beforehand and passed to `return_predict(img)`. Passing the file path won't work. return_predict() also requires imgcv, image height and image width of the original image. Otherwise, the location of bounding box will not be accurately displayed.
+Please note that `return_predict(img,h,w)` must take an `numpy.ndarray` for the input image. Your image must be loaded beforehand and passed to `return_predict(img,h,w)`. Passing the file path won't work. 
 
-The image height and width in this case is 512 and 773 respectively.
+`return_predict(img,h,w)` also requires image height and image width of the original image. Otherwise, the location of bounding box will not be accurately displayed.
 
 Result from `return_predict(img)` will be a list of dictionaries representing each detected object's values in the same format as the JSON output listed above.
 
@@ -65,7 +65,8 @@ options = {"model": "cfg/yolo.cfg", "load": "bin/yolo.", "threshold": 0.1}
 tfnet = TFNet(options)
 
 imgcv = cv2.imread("./sample_img/sample_horses.jpg")
-result = tfnet.return_predict(imgcv, 480, 640)
+# Using data viewer on RTMaps, the image height and width is 512 and 773
+result = tfnet.return_predict(imgcv, 512, 773)
 print(result)
 ```
 
