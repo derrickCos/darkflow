@@ -31,28 +31,27 @@ You can choose _one_ of the following three ways to get started with darkflow.
 
 From command prompt:
 
-1. ```
+1.  ```
     python3 setup.py build_ext --inplace
     ```
  
 Build the Cython extensions in place. NOTE: If installing this way you will have to use `./flow` in the cloned darkflow directory instead of `flow` as darkflow is not installed globally.
 
-2. Let pip install darkflow globally in dev mode (still globally accessible, but changes to the code immediately take effect)
-    ```
+2.  ```
     pip install -e .
     ```
+Let pip install darkflow globally in dev mode (still globally accessible, but changes to the code immediately take effect)
 
-3. Install with pip globally
-    ```
+
+3.  ```
     pip install .
-    ```
+    ``` 
+Install with pip globally
+
 
 ## Update
 
 **Android demo on Tensorflow's** [here](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/src/org/tensorflow/demo/TensorFlowYoloDetector.java)
-
-**I am looking for help:**
- - `help wanted` labels in issue track
 
 ## Parsing the annotations
 
