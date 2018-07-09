@@ -19,30 +19,28 @@ See demo below or see on [this imgur](http://i.imgur.com/EyZZKAA.gif)
 
 ### Python3, tensorflow 1.8, numpy, OpenCV 3.4, cython 0.28.2
 
-## Getting started
+## Installation
 
-Clone the repo to default rtmaps package location  ```C:\Program Files\Intempora\RTMaps 4\packages```
+1. Clone the repo to default rtmaps package location  ```C:\Program Files\Intempora\RTMaps 4\packages```
 
-Then, from command prompt, cd to your folder location on ``` RTMaps 4\packages ```
+2. Then, from command prompt, cd to your folder location on ``` RTMaps 4\packages ```
 
-You can choose _one_ of the following three ways to get started with darkflow:
+3. You can choose _one_ of the following three ways to get started with darkflow:
 
-1.  ```
-    python3 setup.py build_ext --inplace
-    ```
- 
-Build the Cython extensions in place. NOTE: If installing this way you will have to use `./flow` in the cloned darkflow directory instead of `flow` as darkflow is not installed globally.
+    a.  ```
+        python3 setup.py build_ext --inplace
+        ```
+        Build the Cython extensions in place. NOTE: If installing this way you will have to use `./flow` in the cloned darkflow      directory instead of `flow` as darkflow is not installed globally.
 
-2.  ```
-    pip install -e .
-    ```
-Let pip install darkflow globally in dev mode (still globally accessible, but changes to the code immediately take effect)
+    b.  ```
+        pip install -e .
+        ```
+        Let pip install darkflow globally in dev mode (still globally accessible, but changes to the code immediately take effect)
 
-
-3.  ```
-    pip install .
-    ``` 
-Install with pip globally
+    c.  ```
+        pip install .
+        ``` 
+        Install with pip globally
 
 
 **Android demo on Tensorflow's** [here](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/src/org/tensorflow/demo/TensorFlowYoloDetector.java)
