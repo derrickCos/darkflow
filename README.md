@@ -54,7 +54,7 @@ Please note that `return_predict(img,h,w)` must take an `numpy.ndarray` for the 
 
 `return_predict(img,h,w)` also requires image height and image width of the original image. Otherwise, the location of bounding box will not be accurately displayed.
 
-Result from `return_predict(img)` will be a list of dictionaries representing each detected object's values in the same format as the JSON output listed above.
+Result from `return_predict(img,h,w)` will be a list of dictionaries representing each detected object's values in the same format as the JSON output listed above.
 
 ```python
 from darkflow.net.build import TFNet
