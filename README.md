@@ -44,7 +44,13 @@ See demo below or see on [this imgur](http://i.imgur.com/EyZZKAA.gif)
         Install with pip globally
 
 4. Go to rtmaps_object_detect.py. At line 26 `options = `, check that path to `pbLoad` and `metaLoad` correspond to the right `.pb` and `.meta` files. 
-    
+
+5. Open yolo.rtd in RTMaps
+
+6. Under python filename in python_v2 rtmaps block check that the specified .py file is `rtmaps_object_detect.py`
+
+7. Click on run/shutdown
+
 ## Properties in RTMaps    
 
 1. `threshold` values is the minimum detection threshold required for a bounding box to be displayed in the image
