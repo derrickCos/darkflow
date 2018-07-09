@@ -15,13 +15,13 @@ def _fix(obj, dims, scale, offs):
 
 def resize_input(self, im):
 	h, w, c = self.meta['inp_size']
-	print(im.shape)
-	print(h)
-	print(w)
+	# print(im.shape)
+	# print(h)
+	# print(w)
 	imsz = cv2.resize(im, (w, h))
-	print(imsz.shape)
+	# print(imsz.shape)
 	imsz = imsz / 255.
-	print(imsz)
+	# print(imsz)
 	imsz = imsz[:,:,::-1]
 	return imsz
 
@@ -30,6 +30,7 @@ def process_box(self, b, h, w, threshold):
 	max_prob = b.probs[max_indx]
 	label = self.meta['labels'][max_indx]
 	if max_prob > threshold:
+
 		left  = int ((b.x - b.w/2.) * w)
 		right = int ((b.x + b.w/2.) * w)
 		top   = int ((b.y - b.h/2.) * h)
@@ -105,6 +106,7 @@ def postprocess(self, net_out, im, save = True):
 			resultsForJSON.append({"label": mess, "confidence": float('%.2f' % confidence), "topleft": {"x": left, "y": top}, "bottomright": {"x": right, "y": bot}})
 			continue
 
+		# drawing function
 		cv2.rectangle(imgcv,
 			(left, top), (right, bot),
 			self.meta['colors'][max_indx], thick)
@@ -116,6 +118,7 @@ def postprocess(self, net_out, im, save = True):
 
 	if not save: return imgcv
 
+	# Writing names of saved files
 	outfolder = os.path.join(self.FLAGS.imgdir, 'out')
 	img_name = os.path.join(outfolder, os.path.basename(im))
 	if self.FLAGS.json:
@@ -126,3 +129,5 @@ def postprocess(self, net_out, im, save = True):
 		return	
 
 	cv2.imwrite(img_name, imgcv)
+
+# def postprocess2(self, )
