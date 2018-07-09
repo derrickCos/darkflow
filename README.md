@@ -21,9 +21,11 @@ Python3, tensorflow 1.0, numpy, opencv 3.4, cython 0.28.2
 
 ### Getting started
 
-You can choose _one_ of the following three ways to get started with darkflow.
+Clone the repo to default rtmaps package location  ```C:\Program Files\Intempora\RTMaps 4\packages```
 
-From command prompt, change directory to :
+Then, from command prompt, cd to your folder location on ``` RTMaps 4\packages ```
+
+You can choose _one_ of the following three ways to get started with darkflow:
 
 1.  ```
     python3 setup.py build_ext --inplace
@@ -48,7 +50,9 @@ Install with pip globally
 
 ## Using darkflow from a python application
 
-Please note that `return_predict(img)` must take an `numpy.ndarray`. Your image must be loaded beforehand and passed to `return_predict(img)`. Passing the file path won't work.
+Please note that `return_predict(img)` must take an `numpy.ndarray`. Your image must be loaded beforehand and passed to `return_predict(img)`. Passing the file path won't work. return_predict() also requires imgcv, image height and image width of the original image. Otherwise, the location of bounding box will not be accurately displayed.
+
+The image height and width in this case is 512 and 773 respectively.
 
 Result from `return_predict(img)` will be a list of dictionaries representing each detected object's values in the same format as the JSON output listed above.
 
@@ -56,12 +60,12 @@ Result from `return_predict(img)` will be a list of dictionaries representing ea
 from darkflow.net.build import TFNet
 import cv2
 
-options = {"model": "cfg/yolo.cfg", "load": "bin/yolo.weights", "threshold": 0.1}
+options = {"model": "cfg/yolo.cfg", "load": "bin/yolo.", "threshold": 0.1}
 
 tfnet = TFNet(options)
 
-imgcv = cv2.imread("./sample_img/sample_dog.jpg")
-result = tfnet.return_predict(imgcv)
+imgcv = cv2.imread("./sample_img/sample_horses.jpg")
+result = tfnet.return_predict(imgcv, 480, 640)
 print(result)
 ```
 
