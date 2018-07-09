@@ -18,7 +18,7 @@ See demo below or see on [this imgur](http://i.imgur.com/EyZZKAA.gif)
 
 ## Dependencies
 
-### Python3, tensorflow 1.8, numpy, OpenCV 3.4, cython 0.28.2
+### Python3, tensorflow 1.8, numpy, OpenCV 3, cython 0.28.2
 
 ## Installation
 
