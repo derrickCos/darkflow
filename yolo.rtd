@@ -20,53 +20,39 @@
   <ClocksManagement>
     <Property LongName="ClocksManagement.activeClock" Type="4"><![CDATA[1|0|RTMaps_standard_clock]]></Property>
   </ClocksManagement>
-  <Component InstanceName="Conv2Matrix_1" Model="Conv2Matrix" Version="3.0" x="-144" y="80" z="0">
-    <Input LongName="Conv2Matrix_1.input" Name="input">
-      <Property LongName="Conv2Matrix_1.input.readerType" Type="1">0</Property>
-      <Property LongName="Conv2Matrix_1.input.subsampling" Type="1">1</Property>
+  <Component InstanceName="DataViewer_1" Model="DataViewer" Version="1.32.5" x="432" y="104" z="0">
+    <Input LongName="DataViewer_1.input_0" Name="input_0">
+      <Property LongName="DataViewer_1.input_0.readerType" Type="1">2</Property>
+      <Property LongName="DataViewer_1.input_0.subsampling" Type="1">1</Property>
     </Input>
-    <Output LongName="Conv2Matrix_1.output" Name="output">
-      <Property LongName="Conv2Matrix_1.output.subsampling" Type="1">1</Property>
-      <Property LongName="Conv2Matrix_1.output.fifosize" Type="1">16</Property>
-      <Property LongName="Conv2Matrix_1.output.periodic" Type="0">false</Property>
-    </Output>
-    <Property LongName="Conv2Matrix_1.threaded" Type="0">false</Property>
-    <Property LongName="Conv2Matrix_1.priority" Type="1">128</Property>
-    <Property LongName="Conv2Matrix_1.autoStart" Type="0">true</Property>
+    <Input LongName="DataViewer_1.input_1" Name="input_1">
+      <Property LongName="DataViewer_1.input_1.readerType" Type="1">2</Property>
+      <Property LongName="DataViewer_1.input_1.subsampling" Type="1">1</Property>
+    </Input>
+    <Property LongName="DataViewer_1.nbInputs" Type="1">2</Property>
+    <Property LongName="DataViewer_1.compactMode" Type="0">false</Property>
+    <Property LongName="DataViewer_1.showInfo" Type="0">true</Property>
+    <Property LongName="DataViewer_1.showData" Type="0">true</Property>
+    <Property LongName="DataViewer_1.showPrettyTimestamp" Type="0">false</Property>
+    <Property LongName="DataViewer_1.float32Format" Type="3"><![CDATA[%9g]]></Property>
+    <Property LongName="DataViewer_1.float64Format" Type="3"><![CDATA[%9g]]></Property>
+    <Property LongName="DataViewer_1.integer32Format" Type="3"><![CDATA[%d]]></Property>
+    <Property LongName="DataViewer_1.integer64Format" Type="3"><![CDATA[%I64d]]></Property>
+    <Property LongName="DataViewer_1.hexDisplay" Type="0">false</Property>
+    <Property LongName="DataViewer_1.internalState" Type="3"><![CDATA[100;491]]></Property>
+    <Property LongName="DataViewer_1.run" Type="0">true</Property>
+    <Property LongName="DataViewer_1.alwaysOnTop" Type="0">true</Property>
+    <Property LongName="DataViewer_1.moveable" Type="0">true</Property>
+    <Property LongName="DataViewer_1.title" Type="3"><![CDATA[DataViewer_1]]></Property>
+    <Property LongName="DataViewer_1.x" Type="1">30</Property>
+    <Property LongName="DataViewer_1.y" Type="1">57</Property>
+    <Property LongName="DataViewer_1.width" Type="1">618</Property>
+    <Property LongName="DataViewer_1.height" Type="1">472</Property>
+    <Property LongName="DataViewer_1.threaded" Type="0">true</Property>
+    <Property LongName="DataViewer_1.priority" Type="1">128</Property>
+    <Property LongName="DataViewer_1.autoStart" Type="0">true</Property>
   </Component>
-  <Component InstanceName="DataViewer_2" Model="DataViewer" Version="1.32.5" x="776" y="104" z="0">
-    <Input LongName="DataViewer_2.input_0" Name="input_0">
-      <Property LongName="DataViewer_2.input_0.readerType" Type="1">2</Property>
-      <Property LongName="DataViewer_2.input_0.subsampling" Type="1">1</Property>
-    </Input>
-    <Input LongName="DataViewer_2.input_1" Name="input_1">
-      <Property LongName="DataViewer_2.input_1.readerType" Type="1">2</Property>
-      <Property LongName="DataViewer_2.input_1.subsampling" Type="1">1</Property>
-    </Input>
-    <Property LongName="DataViewer_2.nbInputs" Type="1">2</Property>
-    <Property LongName="DataViewer_2.compactMode" Type="0">false</Property>
-    <Property LongName="DataViewer_2.showInfo" Type="0">true</Property>
-    <Property LongName="DataViewer_2.showData" Type="0">true</Property>
-    <Property LongName="DataViewer_2.showPrettyTimestamp" Type="0">false</Property>
-    <Property LongName="DataViewer_2.float32Format" Type="3"><![CDATA[%9g]]></Property>
-    <Property LongName="DataViewer_2.float64Format" Type="3"><![CDATA[%9g]]></Property>
-    <Property LongName="DataViewer_2.integer32Format" Type="3"><![CDATA[%d]]></Property>
-    <Property LongName="DataViewer_2.integer64Format" Type="3"><![CDATA[%I64d]]></Property>
-    <Property LongName="DataViewer_2.hexDisplay" Type="0">false</Property>
-    <Property LongName="DataViewer_2.internalState" Type="3"><![CDATA[176;129]]></Property>
-    <Property LongName="DataViewer_2.run" Type="0">true</Property>
-    <Property LongName="DataViewer_2.alwaysOnTop" Type="0">true</Property>
-    <Property LongName="DataViewer_2.moveable" Type="0">true</Property>
-    <Property LongName="DataViewer_2.title" Type="3"><![CDATA[DataViewer_2]]></Property>
-    <Property LongName="DataViewer_2.x" Type="1">0</Property>
-    <Property LongName="DataViewer_2.y" Type="1">0</Property>
-    <Property LongName="DataViewer_2.width" Type="1">315</Property>
-    <Property LongName="DataViewer_2.height" Type="1">240</Property>
-    <Property LongName="DataViewer_2.threaded" Type="0">true</Property>
-    <Property LongName="DataViewer_2.priority" Type="1">128</Property>
-    <Property LongName="DataViewer_2.autoStart" Type="0">true</Property>
-  </Component>
-  <Component InstanceName="DrawingObject_Generator_1" Model="DrawingObject_Generator" Version="1.5" x="584" y="376" z="0">
+  <Component InstanceName="DrawingObject_Generator_1" Model="DrawingObject_Generator" Version="1.5" x="528" y="192" z="0">
     <Input LongName="DrawingObject_Generator_1.lines" Name="lines">
       <Property LongName="DrawingObject_Generator_1.lines.readerType" Type="1">0</Property>
       <Property LongName="DrawingObject_Generator_1.lines.subsampling" Type="1">1</Property>
@@ -118,7 +104,7 @@
     <Property LongName="DrawingObject_Generator_1.priority" Type="1">128</Property>
     <Property LongName="DrawingObject_Generator_1.autoStart" Type="0">true</Property>
   </Component>
-  <Component InstanceName="ImageViewer_1" Model="ImageViewer" Version="1.23" x="856" y="248" z="0">
+  <Component InstanceName="ImageViewer_1" Model="ImageViewer" Version="1.22" x="864" y="344" z="0">
     <Input LongName="ImageViewer_1.input" Name="input">
       <Property LongName="ImageViewer_1.input.readerType" Type="1">2</Property>
       <Property LongName="ImageViewer_1.input.subsampling" Type="1">1</Property>
@@ -138,10 +124,10 @@
       <Property LongName="ImageViewer_1.oWindowEvent.fifosize" Type="1">16</Property>
       <Property LongName="ImageViewer_1.oWindowEvent.periodic" Type="0">false</Property>
     </Output>
-    <Property LongName="ImageViewer_1.left" Type="1">811</Property>
-    <Property LongName="ImageViewer_1.top" Type="1">282</Property>
-    <Property LongName="ImageViewer_1.width" Type="1">0</Property>
-    <Property LongName="ImageViewer_1.height" Type="1">0</Property>
+    <Property LongName="ImageViewer_1.left" Type="1">249</Property>
+    <Property LongName="ImageViewer_1.top" Type="1">308</Property>
+    <Property LongName="ImageViewer_1.width" Type="1">640</Property>
+    <Property LongName="ImageViewer_1.height" Type="1">480</Property>
     <Property LongName="ImageViewer_1.autoResize" Type="0">true</Property>
     <Property LongName="ImageViewer_1.alwaysOnTop" Type="0">true</Property>
     <Property LongName="ImageViewer_1.fullscreen" Type="0">false</Property>
@@ -158,7 +144,7 @@
     <Property LongName="ImageViewer_1.priority" Type="1">128</Property>
     <Property LongName="ImageViewer_1.autoStart" Type="0">true</Property>
   </Component>
-  <Component InstanceName="OpenCV_Overlay_1" Model="OpenCV_Overlay" Version="2.3.2" x="720" y="248" z="0">
+  <Component InstanceName="OpenCV_Overlay_1" Model="OpenCV_Overlay" Version="2.3.2" x="696" y="344" z="0">
     <Input LongName="OpenCV_Overlay_1.images" Name="images">
       <Property LongName="OpenCV_Overlay_1.images.readerType" Type="1">0</Property>
       <Property LongName="OpenCV_Overlay_1.images.subsampling" Type="1">1</Property>
@@ -185,7 +171,7 @@
     <Property LongName="OpenCV_Overlay_1.priority" Type="1">128</Property>
     <Property LongName="OpenCV_Overlay_1.autoStart" Type="0">true</Property>
   </Component>
-  <Component InstanceName="python_v2_1" Model="python_v2" Version="1.7.0" x="368" y="392" z="0">
+  <Component InstanceName="python_v2_1" Model="python_v2" Version="1.8" x="312" y="208" z="0">
     <Input LongName="python_v2_1.img" Name="img">
       <Property LongName="python_v2_1.img.readerType" Type="1">0</Property>
       <Property LongName="python_v2_1.img.subsampling" Type="1">1</Property>
@@ -197,21 +183,19 @@
     </Output>
     <Property LongName="python_v2_1.autoReloadSubModules" Type="0">false</Property>
     <Property LongName="python_v2_1.pythonVersion" Type="4"><![CDATA[2|0|3.6|2.7]]></Property>
-    <Property LongName="python_v2_1.pythonInstallationFolder" Type="3" SubType="32"><![CDATA[C:/Anaconda3/]]><Relative><![CDATA[%RTMAPS_DIAGRAMDIR%/../../../../../../Anaconda3]]></Relative></Property>
-    <Property LongName="python_v2_1.pythonFilename" Type="3" SubType="80"><![CDATA[C:\Program Files\Intempora\RTMaps 4\packages\rtmaps_object_detect\darkflow-master\rtmaps_object_detect.py]]><Relative><![CDATA[%RTMAPS_DIAGRAMDIR%/rtmaps_object_detect.py]]></Relative></Property>
-    <Property LongName="python_v2_1.pythonLogFile" Type="3" SubType="16"><![CDATA[C:\Users\dcosmas\RTMaps-4.0\rtmaps_python_log_python_v2_1.txt]]><Relative><![CDATA[%RTMAPS_DIAGRAMDIR%/../../../../../../Users/dcosmas/RTMaps-4.0/rtmaps_python_log_python_v2_1.txt]]></Relative></Property>
+    <Property LongName="python_v2_1.pythonInstallationFolder" Type="3" SubType="32"><![CDATA[AUTO/]]></Property>
+    <Property LongName="python_v2_1.pythonFilename" Type="3" SubType="80"><![CDATA[C:/Program Files/Intempora/RTMaps 4/packages/rtmaps_object_detect/darkflow-master/rtmaps_object_detect.py]]><Relative><![CDATA[%RTMAPS_DIAGRAMDIR%/rtmaps_object_detect.py]]></Relative></Property>
+    <Property LongName="python_v2_1.pythonLogFile" Type="3" SubType="16"><![CDATA[C:/Users/Administrator/RTMaps-4.0/rtmaps_python_log_python_v2_1.txt]]><Relative><![CDATA[%RTMAPS_DIAGRAMDIR%/../../../../../../Users/Administrator/RTMaps-4.0/rtmaps_python_log_python_v2_1.txt]]></Relative></Property>
     <Property LongName="python_v2_1.KeepPythonAliveAfterDeath" Type="0">false</Property>
     <Property LongName="python_v2_1.verbose" Type="0">true</Property>
     <Property LongName="python_v2_1.className" Type="3"><![CDATA[rtmaps_python]]></Property>
     <Property LongName="python_v2_1.internalInputs" Type="3" SubType="128"><![CDATA[img,1;]]></Property>
-    <Property LongName="python_v2_1.internalOutputs" Type="3" SubType="128"><![CDATA[coord,2,15;]]></Property>
-    <Property LongName="python_v2_1.internalProperties" Type="3" SubType="128"><![CDATA[threshold,5,0.5;gpu_usage,5,0.7;image_height,3,480;image_width,3,640;]]></Property>
+    <Property LongName="python_v2_1.internalOutputs" Type="3" SubType="128"><![CDATA[coord,2,100;]]></Property>
+    <Property LongName="python_v2_1.internalProperties" Type="3" SubType="128"><![CDATA[threshold,5,0.5;gpu_usage,5,0.8;]]></Property>
     <Property LongName="python_v2_1.readingPolicy" Type="4"><![CDATA[4|1|Synchro|Reactive|Sampling|Triggered]]></Property>
     <Property LongName="python_v2_1.timeout" Type="1">0</Property>
     <Property LongName="python_v2_1.threshold" Type="2">0.5</Property>
-    <Property LongName="python_v2_1.gpu_usage" Type="2">0.7</Property>
-    <Property LongName="python_v2_1.image_height" Type="1">480</Property>
-    <Property LongName="python_v2_1.image_width" Type="1">640</Property>
+    <Property LongName="python_v2_1.gpu_usage" Type="2">0.8</Property>
     <Property LongName="python_v2_1.memorySize" Type="1">10000000</Property>
     <ReadOnlyProperty LongName="python_v2_1.pythonPID" Type="1">0</ReadOnlyProperty>
     <Property LongName="python_v2_1.additionalEnvironmentVariables" Type="3"><![CDATA[]]></Property>
@@ -219,23 +203,24 @@
     <Property LongName="python_v2_1.priority" Type="1">128</Property>
     <Property LongName="python_v2_1.autoStart" Type="0">true</Property>
   </Component>
-  <Component InstanceName="Webcam_1" Model="Webcam" Version="2.5" x="224" y="248" z="0">
+  <Component InstanceName="Webcam_1" Model="Webcam" Version="2.5" x="112" y="344" z="0">
     <Output LongName="Webcam_1.outputIplImage" Name="outputIplImage">
       <Property LongName="Webcam_1.outputIplImage.subsampling" Type="1">1</Property>
       <Property LongName="Webcam_1.outputIplImage.fifosize" Type="1">16</Property>
       <Property LongName="Webcam_1.outputIplImage.periodic" Type="0">false</Property>
     </Output>
-    <Property LongName="Webcam_1.device" Type="4"><![CDATA[2|0|ThinkVantage Virtual Camera_0|Integrated Camera_1]]></Property>
-    <Property LongName="Webcam_1.videoFormat" Type="4"><![CDATA[2|0|RGB24 320x240 - 30 fps|RGB24 640x480 - 30 fps]]></Property>
+    <Property LongName="Webcam_1.device" Type="4"><![CDATA[1|0|Logitech HD Webcam C270_0]]></Property>
+    <Property LongName="Webcam_1.videoFormat" Type="4"><![CDATA[38|0|RGB24 640x480 - 30 fps|RGB24 160x120 - 30 fps|RGB24 176x144 - 30 fps|RGB24 320x176 - 30 fps|RGB24 320x240 - 30 fps|RGB24 352x288 - 30 fps|RGB24 432x240 - 30 fps|RGB24 544x288 - 30 fps|RGB24 640x360 - 30 fps|RGB24 752x416 - 30 fps|RGB24 800x448 - 30 fps|RGB24 800x600 - 30 fps|RGB24 864x480 - 30 fps|RGB24 960x544 - 30 fps|RGB24 960x720 - 30 fps|RGB24 1024x576 - 30 fps|RGB24 1184x656 - 30 fps|RGB24 1280x720 - 30 fps|RGB24 1280x960 - 30 fps|I420 640x480 - 30 fps|I420 160x120 - 30 fps|I420 176x144 - 30 fps|I420 320x176 - 30 fps|I420 320x240 - 30 fps|I420 352x288 - 30 fps|I420 432x240 - 30 fps|I420 544x288 - 30 fps|I420 640x360 - 30 fps|I420 752x416 - 30 fps|I420 800x448 - 30 fps|I420 800x600 - 30 fps|I420 864x480 - 30 fps|I420 960x544 - 30 fps|I420 960x720 - 30 fps|I420 1024x576 - 30 fps|I420 1184x656 - 30 fps|I420 1280x720 - 30 fps|I420 1280x960 - 30 fps]]></Property>
     <Property LongName="Webcam_1.framerate" Type="1">-1</Property>
     <Property LongName="Webcam_1.force_output_IPL_BGR24" Type="0">true</Property>
     <Property LongName="Webcam_1.acquisition_mode" Type="4"><![CDATA[2|0|Continuous|Capture]]></Property>
-    <Property LongName="Webcam_1.out_pin" Type="4"><![CDATA[2|0|Default|Capture]]></Property>
+    <Property LongName="Webcam_1.out_pin" Type="4"><![CDATA[3|0|Default|Capture|Still]]></Property>
     <Property LongName="Webcam_1.list_devices_by" Type="4"><![CDATA[4|0|Friendly name + index suffix|Friendly name only|CLSID|DevicePath]]></Property>
     <Property LongName="Webcam_1.threaded" Type="0">true</Property>
     <Property LongName="Webcam_1.priority" Type="1">128</Property>
     <Property LongName="Webcam_1.autoStart" Type="0">true</Property>
   </Component>
+  <Connection Output="python_v2_1.coord" Input="DataViewer_1.input_0"/>
   <Connection Output="python_v2_1.coord" Input="DrawingObject_Generator_1.rectangles"/>
   <Connection Output="OpenCV_Overlay_1.output" Input="ImageViewer_1.input"/>
   <Connection Output="Webcam_1.outputIplImage" Input="OpenCV_Overlay_1.images"/>
@@ -249,6 +234,7 @@
     <ConnectionShape InstanceName="DrawingObject_Generator_1.rectangles" color="0"/>
     <ConnectionShape InstanceName="Edge_Detection.input" color="0"/>
     <ConnectionShape InstanceName="ImageViewer_1.input" color="0"/>
+    <ConnectionShape InstanceName="ImageViewer_2.input" color="0"/>
     <ConnectionShape InstanceName="ImageViewer_Overlay.input" color="0"/>
     <ConnectionShape InstanceName="ImageViewer_Webcam.input" color="0"/>
     <ConnectionShape InstanceName="OpenCV_Overlay_1.images" color="0"/>
@@ -256,14 +242,18 @@
     <ConnectionShape InstanceName="OpenCV_Overlay_1.shape1" color="0"/>
     <ConnectionShape InstanceName="OverlayDrawing_1.drawingObjects" color="0"/>
     <ConnectionShape InstanceName="OverlayDrawing_1.drawingObjects2" color="0"/>
+    <ConnectionShape InstanceName="OverlayDrawing_1.drawingObjects3" color="0"/>
     <ConnectionShape InstanceName="OverlayDrawing_1.input" color="0"/>
     <ConnectionShape InstanceName="OverlayDrawing_2.drawingObjects" color="0"/>
     <ConnectionShape InstanceName="OverlayDrawing_2.drawingObjects2" color="0"/>
     <ConnectionShape InstanceName="OverlayDrawing_2.drawingObjects4" color="0"/>
     <ConnectionShape InstanceName="OverlayDrawing_2.input" color="0"/>
+    <ConnectionShape InstanceName="python_v2_1.changed" color="0"/>
     <ConnectionShape InstanceName="python_v2_1.image_in" color="0"/>
     <ConnectionShape InstanceName="python_v2_1.img" color="0"/>
+    <ConnectionShape InstanceName="python_v2_1.img2" color="0"/>
     <ConnectionShape InstanceName="python_v2_1.in" color="0"/>
+    <ConnectionShape InstanceName="python_v2_1.original" color="0"/>
     <ConnectionShape InstanceName="python_v2_2.in" color="0"/>
     <ConnectionShape InstanceName="python_v2_2.in1" color="0"/>
     <ConnectionShape InstanceName="python_v2_2.in2" color="0"/>
