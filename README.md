@@ -53,8 +53,6 @@ See demo below or see on [this imgur](http://i.imgur.com/EyZZKAA.gif)
 
 1. `threshold` values is the minimum detection threshold required for a bounding box to be displayed in the image
 2. `gpu` is the percentage of GPU usage from 0.0 to 1.0
-3. `image_height` is the height of original input image 
-4. `image_width` is the width of oriignal input image
 
 **Android demo on Tensorflow's** [here](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/src/org/tensorflow/demo/TensorFlowYoloDetector.java)
 
