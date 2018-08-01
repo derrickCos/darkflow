@@ -4,8 +4,6 @@ Added main.py for python usage
 
 Made changes to darkflow\net\flow.py and darkflow\net\yolo\predict.py from original repo
 
-[![Build Status](https://travis-ci.org/thtrieu/darkflow.svg?branch=master)](https://travis-ci.org/thtrieu/darkflow) [![codecov](https://codecov.io/gh/thtrieu/darkflow/branch/master/graph/badge.svg)](https://codecov.io/gh/thtrieu/darkflow)
-
 Real-time object detection and classification. Paper: [version 1](https://arxiv.org/pdf/1506.02640.pdf), [version 2](https://arxiv.org/pdf/1612.08242.pdf).
 
 Read more about YOLO (in darknet) [here](http://pjreddie.com/darknet/yolo/). In case the weights file cannot be found, I uploaded some of mine `T:\Working\DCosmas\darkflow-master\bin`, which include `yolo` and `yolo-tiny`
